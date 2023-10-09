@@ -91,3 +91,5 @@ Lembre-se de que o envio de newsletters é uma operação assíncrona e pode dem
 ## Contribuindo
 
 Sinta-se à vontade para contribuir para o desenvolvimento desta API. Se você encontrar problemas ou tiver sugestões, abra uma "branch" e envie um "pull request" para colaborar.
+
+###### tags:  `Back-end` - `nodeJS` - `API REST`
