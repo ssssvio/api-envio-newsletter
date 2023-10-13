@@ -1,21 +1,18 @@
 const knex = require("../db/dbConfig");
-const { userValidation } = require("../utils/user.validation");
+const { schemaUsuario } = require('../utils/user.validation')
 
 const bodyValidation = async (req, res, next) => {
     try {
-        await userValidation.validate(req.body);
-
-        const emailCadastrato = await knex('assinantes')
+        await schemaUsuario.validateAsync(req.body)
+        const temEmail = await knex('assinantes')
             .where('email', '=', req.body.email)
             .first()
-
-        if (emailCadastrato) {
+        if (temEmail) {
             return res.status(400).json({ message: 'Informe um e-mail diferente!' })
         }
-
         return next()
     } catch (error) {
-        return res.status(400).json({ message: error.message });
+        return res.status(500).json({ mensage: "Internal server error :/ " });
     }
 }
 
